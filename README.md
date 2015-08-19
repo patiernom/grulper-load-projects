@@ -30,47 +30,34 @@ npm install grulper-load-projects  --save-dev
 
 
 ## Usage
-You can use it into grunt task 
-```js
-var gulp     = require('gulp');
-var tasks    = require('grulper-load-projects');
-var defaultDir = 'sampleTaskDir';
-var defaultRoot = 'sampleRootDir';
-
-gulp = tasks(gulp, defaultDir, defaultRoot, [options], [plugins], [helpers]);
-```
-
-Or you can specify options
-```js
-var gulp     = require('gulp');
-var tasks    = require('grulper-load-projects');
-var defaultDir = 'sampleTaskDir';
-var defaultRoot = 'sampleRootDir';
-
-gulp = tasks(gulp, defaultDir, defaultRoot, {
-  dirname: '/tasks',   // The directory that tasks are located in
-  pattern: '*.js',    // Pattern to use when looking for task files
-  cwd: process.cwd() // Current working directory configuration
-});
-```
-
-You can also pass a plugins param if you use gulp-load-plugins npm module, and you want use those within your tasks.
-```js
-var plugins = require('gulp-load-plugins')();
-
-gulp = tasks(gulp, defaultDir, defaultRoot, options, plugins);
-```
-
-The helpers param, is an object that allow you to have utility functions within your tasks. 
-```js
-var helpers = {
-    somevar: '',
-    somefunc: function(val){...}
+Create a json file like this:
+```json
+{
+  "default":{
+    "rootDirectory": "./src",
+    "outputDirectory": "/dist",
+    "configuration": {
+      "base":"/config",
+      "files":[
+        "build.json"
+      ]
+    },
+    "tasks":{
+      "base":"/config/tasks",
+      "default": ["scripts"]
+    }
+  }
 }
-
-gulp = tasks(gulp, defaultDir, defaultRoot, options, plugins, helpers);
 ```
 
+And then you can use it from 'require' by specifying json config file 
+```js
+var myProjectHelper = require('grulper-load-projects')('gulp/config.json');
+console.log(myProjectHelper.projectSetting.projectDirectory + myProjectHelper.projectSetting.projectTasks);
+
+var lib = testProjectLoaded.getLibrary('stubBuild');
+console.log(lib.sampleNode.prop);
+```
 
 ## Contributing
 

@@ -1,0 +1,12 @@
+{
+  "js": {
+    "sample": {
+      "libname": "sample",
+      "srcfiles": [
+        "scripts/demo.js",
+        "scripts/pippo.js"
+      ],
+      "destdir": "dist/js"
+    }
+  }
+}

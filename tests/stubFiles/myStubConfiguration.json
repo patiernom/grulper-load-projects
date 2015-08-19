@@ -1,15 +1,12 @@
 {
   "default": {
-    "rootDirectory": "./src",
+    "rootDirectory": "./tests",
     "outputDirectory": "/dist",
     "configuration": {
-      "base": "/config",
-      "files": [
-        "build.json"
-      ]
+      "base": "/stubFiles"
     },
     "tasks": {
-      "base": "/config/tasks",
+      "base": "/stubFiles/tasks",
       "default": [
         "scripts"
       ]
