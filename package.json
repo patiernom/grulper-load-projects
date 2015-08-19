@@ -1,6 +1,6 @@
 {
   "name": "grulper-load-projects",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "A simple Grulper module for load your projects specification from JSON.",
   "repository": {
     "type": "git",

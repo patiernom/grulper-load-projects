@@ -55,7 +55,7 @@ And then you can use it from 'require' by specifying json config file
 var myProjectHelper = require('grulper-load-projects')('gulp/config.json');
 console.log(myProjectHelper.projectSetting.projectDirectory + myProjectHelper.projectSetting.projectTasks);
 
-var lib = testProjectLoaded.getLibrary('stubBuild');
+var lib = testProjectLoaded.getLibrary('build');
 console.log(lib.sampleNode.prop);
 ```
 
