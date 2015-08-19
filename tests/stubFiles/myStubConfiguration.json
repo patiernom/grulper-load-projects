@@ -1,0 +1,18 @@
+{
+  "default": {
+    "rootDirectory": "./src",
+    "outputDirectory": "/dist",
+    "configuration": {
+      "base": "/config",
+      "files": [
+        "build.json"
+      ]
+    },
+    "tasks": {
+      "base": "/config/tasks",
+      "default": [
+        "scripts"
+      ]
+    }
+  }
+}
