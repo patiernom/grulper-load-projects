@@ -5,9 +5,7 @@ let chai = require('chai'),
     rewire = require('rewire');
 
 describe('Grulper Projects Loader', function () {
-    'use strict';
-
-    let testGrulperLoadProjects;
+    var testGrulperLoadProjects;
 
     before(function (done) {
         testGrulperLoadProjects = rewire('../index');
