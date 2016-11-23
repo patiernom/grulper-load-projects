@@ -1,15 +1,15 @@
-var path = require('path'),
+let path = require('path'),
     loadSettings = require('./lib/option-project-reader');
 
 module.exports = function(configJSONFile){
-    var settings = loadSettings(configJSONFile),
+    let settings = loadSettings(configJSONFile),
         getBasePath = function(){
             return settings.projectDirectory + settings.projectConfig + '/';
         };
 
     return {
         getLibrary: function (name) {
-            var file = getBasePath() + name;
+            let file = getBasePath() + name;
 
             return require(path.resolve(file));
         },

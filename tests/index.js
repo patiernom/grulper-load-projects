@@ -1,11 +1,11 @@
 'use strict';
 
-var chai = require('chai'),
+let chai = require('chai'),
     expect = chai.expect,
     rewire = require('rewire');
 
 describe('Grulper Projects Loader', function () {
-    var testGrulperLoadProjects;
+    let testGrulperLoadProjects;
 
     before(function (done) {
         testGrulperLoadProjects = rewire('../index');
@@ -21,14 +21,15 @@ describe('Grulper Projects Loader', function () {
     });
 
     describe('check module operation', function () {
-        var testProjectLoaded;
+        let testProjectLoaded;
 
         beforeEach(function (done) {
 
-            var loadSettingsMock = function (jsonFile) {
+            let loadSettingsMock = function (jsonFile) {
                 return {
                     projectName: 'default',
                     projectDirectory: './tests',
+                    projectDestinationDirectory: '/dist',
                     projectConfig: '/stubFiles',
                     projectTasks: './tests/stubFiles/tasks',
                     projectTasksDefault: [
@@ -52,7 +53,7 @@ describe('Grulper Projects Loader', function () {
         });
 
         it('check some projectSetting properties', function (done) {
-            var testProjSettings = testProjectLoaded.projectSetting;
+            let testProjSettings = testProjectLoaded.projectSetting;
 
             expect(typeof testProjSettings.projectName).to.equal('string');
             expect(typeof testProjSettings.projectName).to.not.be.empty;
@@ -72,7 +73,7 @@ describe('Grulper Projects Loader', function () {
             });
 
             it('function get Library', function (done) {
-                var lib = testProjectLoaded.getLibrary('stubBuild').js;
+                let lib = testProjectLoaded.getLibrary('stubBuild').js;
 
                 expect(typeof lib).to.not.be.undefined;
                 expect(typeof lib).to.equal('object');

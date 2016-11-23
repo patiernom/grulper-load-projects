@@ -1,6 +1,6 @@
 'use strict';
 
-var chai = require('chai'),
+let chai = require('chai'),
     expect = chai.expect;
 
 describe('Option Project Reader Library', function () {
@@ -18,10 +18,9 @@ describe('Option Project Reader Library', function () {
     });
 
     it('module loads target json', function (done) {
-        var settings = testOptionProjectLoader('./tests/stubFiles/myStubConfiguration.json');
+        let settings = testOptionProjectLoader('./tests/stubFiles/myStubConfiguration.json');
         expect(typeof settings).to.not.be.undefined;
         expect(typeof settings).to.equal('object');
-        settings.projectDirectory
 
         done();
     });
@@ -65,6 +64,13 @@ describe('Option Project Reader Library', function () {
         it('check projectTasksDefault property', function (done) {
             expect(typeof settings.projectTasksDefault).to.equal('object');
             expect(typeof settings.projectTasksDefault).to.not.be.empty;
+
+            done();
+        });
+
+        it('check projectDestinationDirectory property', function (done) {
+            expect(typeof settings.projectDestinationDirectory).to.equal('string');
+            expect(typeof settings.projectDestinationDirectory).to.not.be.empty;
 
             done();
         });
