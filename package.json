@@ -21,7 +21,7 @@
     "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha $(find tests -name '*.js') --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "engines": {
-    "node": ">=0.10.22"
+    "node": ">=4.6.2"
   },
   "dependencies": {
     "minimist": "^1.1.3"
