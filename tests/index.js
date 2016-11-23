@@ -5,6 +5,8 @@ let chai = require('chai'),
     rewire = require('rewire');
 
 describe('Grulper Projects Loader', function () {
+    'use strict';
+
     let testGrulperLoadProjects;
 
     before(function (done) {
@@ -21,11 +23,12 @@ describe('Grulper Projects Loader', function () {
     });
 
     describe('check module operation', function () {
-        let testProjectLoaded;
+        var testProjectLoaded;
 
         beforeEach(function (done) {
+            'use strict';
 
-            let loadSettingsMock = function (jsonFile) {
+            let loadSettingsMock = function () {
                 return {
                     projectName: 'default',
                     projectDirectory: './tests',
@@ -53,6 +56,8 @@ describe('Grulper Projects Loader', function () {
         });
 
         it('check some projectSetting properties', function (done) {
+            'use strict';
+
             let testProjSettings = testProjectLoaded.projectSetting;
 
             expect(typeof testProjSettings.projectName).to.equal('string');
@@ -73,6 +78,8 @@ describe('Grulper Projects Loader', function () {
             });
 
             it('function get Library', function (done) {
+                'use strict';
+
                 let lib = testProjectLoaded.getLibrary('stubBuild').js;
 
                 expect(typeof lib).to.not.be.undefined;

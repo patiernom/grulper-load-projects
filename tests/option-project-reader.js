@@ -4,7 +4,9 @@ let chai = require('chai'),
     expect = chai.expect;
 
 describe('Option Project Reader Library', function () {
-    var testOptionProjectLoader;
+    'use strict';
+
+    let testOptionProjectLoader;
 
     beforeEach(function (done) {
         testOptionProjectLoader = require('../lib/option-project-reader');
@@ -18,6 +20,8 @@ describe('Option Project Reader Library', function () {
     });
 
     it('module loads target json', function (done) {
+        'use strict';
+
         let settings = testOptionProjectLoader('./tests/stubFiles/myStubConfiguration.json');
         expect(typeof settings).to.not.be.undefined;
         expect(typeof settings).to.equal('object');
